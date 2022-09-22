@@ -1,0 +1,27 @@
+{
+  "name": "Realestate.com Filter",
+  "description": "Find your target fast!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["declarativeContent", "activeTab", "scripting"],
+  "page_action": {
+    "default_icon": {
+      "16": "/images/home_16.png",
+      "32": "/images/home_32.png",
+      "48": "/images/home_48.png",
+      "128": "/images/home_128.png"
+    },
+    "default_title": "Tell me the price",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "/images/home_16.png",
+    "32": "/images/home_32.png",
+    "48": "/images/home_48.png",
+    "128": "/images/home_128.png"
+  },
+  "options_page": "options.html"
+}
