@@ -3,7 +3,8 @@ let extensionOn = true;
 let realestateRule = {
   conditions: [
     new chrome.declarativeContent.PageStateMatcher({
-      pageUrl: { hostSuffix: '.realestate.com.au', schemes: ['https'] },
+      //pageUrl: { hostSuffix: '.realestate.com.au', schemes: ['https'] },
+      pageUrl: { urlContains: 'realestate.com.au/buy', schemes: ['https'] },
     })
   ],
   actions: [ new chrome.declarativeContent.ShowAction() ]
@@ -25,10 +26,21 @@ chrome.action.onClicked.addListener(
       }
 });
 
+chrome.tabs.onUpdated.addListener(
+  function(tabId, changeInfo, tab) {
+    if (changeInfo.url) {
+      chrome.tabs.sendMessage( tabId, {
+        executeContentScript: true,
+        tab: tab
+      })
+    }
+  }
+);
+
 function executeContentScript(tab){
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    files: ['content-script.js']
+    files: ['cnotent-script.js']
   });
 }
 

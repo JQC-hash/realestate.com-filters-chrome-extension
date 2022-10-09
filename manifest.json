@@ -9,7 +9,8 @@
   "content_scripts": [
     {
       "matches": ["https://*.realestate.com.au/*"],
-      "js": ["content-script.js"]
+      "js": ["content-script.js"],
+      "persistent": true
     }
   ],
   "host_permissions": ["https://*.realestate.com.au/*"],
@@ -29,6 +30,5 @@
     "32": "/images/home_32.png",
     "48": "/images/home_48.png",
     "128": "/images/home_128.png"
-  },
-  "options_page": "options.html"
+  }
 }
